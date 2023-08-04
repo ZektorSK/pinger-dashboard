@@ -12,7 +12,7 @@ generator client {
 
 model Site {
   id                Int           @default(autoincrement()) @id
-  name              String        @default("site")
+  name              String        @default("site") @db.VarChar(255)
   url               String        @unique
   ///in ms (milliseconds)
   interval          Int
@@ -38,8 +38,8 @@ model Ping {
 
 model User {
   id          Int       @id @default(autoincrement())
-  username    String    @unique
-  email       String    @unique
+  username    String    @unique @db.VarChar(255)
+  email       String    @unique @db.VarChar(255)
   password    String
   watchlist   Watchlist[]
   created_at  DateTime  @default(now())
