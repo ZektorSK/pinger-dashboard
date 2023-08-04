@@ -27,6 +27,9 @@ $ npx prisma db seed
 ```bash
 #run the database migrations
 $ npx prisma migrate dev
+
+#create migrations
+$ npx prisma migrate dev --name [insert name]
 ```
 
 ## Running the app
