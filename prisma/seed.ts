@@ -5,16 +5,16 @@ const prisma = new PrismaClient();
 
 async function main() {
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@admin.com' },
+    where: { email: process.env.SEED_MAIL },
     update: {
-      email: 'admin@admin.com',
-      username: 'Admin',
-      password: await bcrypt.hash('admin123', 10),
+      email: process.env.SEED_MAIL,
+      username: process.env.SEED_USERNAME,
+      password: await bcrypt.hash(process.env.SEED_PASSWORD, 10),
     },
     create: {
-      email: 'admin@admin.com',
-      username: 'Admin',
-      password: await bcrypt.hash('admin123', 10),
+      email: process.env.SEED_MAIL,
+      username: process.env.SEED_USERNAME,
+      password: await bcrypt.hash(process.env.SEED_PASSWORD, 10),
     },
   });
 
