@@ -32,6 +32,14 @@ $ npx prisma migrate dev
 $ npx prisma migrate dev --name [insert name]
 ```
 
+### Creating migrations
+
+```
+1. Edit the prisma/schema.prisma file
+2. Run the command $ npx prisma migrate dev --name [insert name]
+3. Commit both the migration and the schema.prisma edit
+```
+
 ## Running the app
 
 ```bash
