@@ -16,8 +16,8 @@ export class CommonService<T> {
     return this.prisma[this.model].findMany({ where: where });
   }
 
-  async create(where: object): Promise<T | undefined> {
-    return this.prisma[this.model].create({ where: where });
+  async create(data: object): Promise<T | undefined> {
+    return this.prisma[this.model].create({ data: data });
   }
 
   async update(where: object, data: object): Promise<T | undefined> {
