@@ -8,7 +8,23 @@ export class CommonService<T> {
     private readonly model: string,
   ) {}
 
-  async findOne(params: object): Promise<T | undefined> {
-    return this.prisma[this.model].findFirst({ where: params });
+  async findOne(where: object): Promise<T | undefined> {
+    return this.prisma[this.model].findFirst({ where: where });
+  }
+
+  async findMany(where: object): Promise<T | undefined> {
+    return this.prisma[this.model].findMany({ where: where });
+  }
+
+  async create(where: object): Promise<T | undefined> {
+    return this.prisma[this.model].create({ where: where });
+  }
+
+  async update(where: object, data: object): Promise<T | undefined> {
+    return this.prisma[this.model].update({ where: where, data: data });
+  }
+
+  async delete(where: object): Promise<T | undefined> {
+    return this.prisma[this.model].delete({ where: where });
   }
 }
