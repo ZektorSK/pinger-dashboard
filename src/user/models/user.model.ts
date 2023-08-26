@@ -1,4 +1,4 @@
-import { Field, HideField, Int, ID, ObjectType } from '@nestjs/graphql';
+import { Field, HideField, Int, ID, ObjectType, GraphQLISODateTime } from "@nestjs/graphql";
 
 @ObjectType()
 export class User {
@@ -15,9 +15,9 @@ export class User {
   // @Field((type) => [PrismaWatchlist])
   // watchlist: PrismaWatchlist[];
 
-  @Field(type => String)
-  created_at: string; //TODO: add custom scalar type for date
+  @Field(type => GraphQLISODateTime)
+  created_at: Date;
 
-  @Field(type => String)
-  updated_at: string; //TODO: add custom scalar type for date
+  @Field(type => GraphQLISODateTime)
+  updated_at: Date;
 }
