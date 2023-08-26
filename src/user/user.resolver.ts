@@ -8,6 +8,6 @@ export class UserResolver {
 
   @Query(returns => User, {name: 'User'})
   async getUser(@Args('email', { type: () => String }) email: string) {
-    return this.userService.findOne(email);
+    return this.userService.findOne({ email: email });
   }
 }
